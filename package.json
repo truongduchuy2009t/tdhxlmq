@@ -1,0 +1,12 @@
+{
+  "name": "tdhxlmq-bio",
+  "version": "1.0.0",
+  "description": "Trang thông tin cá nhân Liquid Glass UI của TDHxLMQ",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
