@@ -1,3 +1,3 @@
 User-agent: *
 Allow: /
-Sitemap: https://tdhxlmq.onrender.com/sitemap.xml
+Sitemap: https://tdhxlmq.dpdns.org/sitemap.xml
