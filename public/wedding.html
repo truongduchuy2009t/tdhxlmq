@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding - Trương Đức Huy & Lê Minh Quân</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display & Montserrat -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://scontent.fvii2-1.fna.fbcdn.net/v/t39.30808-6/483067792_612873464922746_4741570201831170335_n.jpg?stp=dst-jpg_tt6&cstp=mx336x336&ctp=s336x336&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHD5W5YraGJnGgVx7hxukiztCUeg53hMUG0JR6DneExQSmonBfulYbiWxklX6xgytEbFn--cQwmd_YTRxY7fpHX&_nc_ohc=OMrKIYe5ciEQ7kNvwHVl83o&_nc_oc=AdrgrkjWy6hKrRVcEFvqT3eVKOD4p-74sj6STD2RIyWSqZBqgeB3HflaqP4kckZjLXLAo13SyuXcT7TSFwXjg0LE&_nc_zt=23&_nc_ht=scontent.fvii2-1.fna&_nc_gid=7lKoI287uy2b8lYGcq4cTw&_nc_ss=7b2a8&oh=00_AQLMYJDh3W6j8mK9A4ehHfepjpqWkZYyGjse6JekkdOm9g&oe=6AB08509">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #311026 100%);
+            min-height: 100vh;
+            color: #f8fafc;
+        }
+        .font-serif-custom {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Hiệu ứng Liquid Glass */
+        .liquid-glass {
+            background: rgba(30, 41, 59, 0.45);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .liquid-glass-hover:hover {
+            background: rgba(51, 65, 85, 0.6);
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center p-4 sm:p-8">
+
+    <!-- Container chính -->
+    <div class="w-full max-w-md liquid-glass rounded-3xl p-6 sm:p-8 text-center relative overflow-hidden my-6">
+        
+        <!-- Hiệu ứng ánh sáng nền -->
+        <div class="absolute -top-24 -left-24 w-48 h-48 bg-pink-500/20 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-24 -right-24 w-48 h-48 bg-indigo-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Tiêu đề thiệp -->
+        <p class="text-xs uppercase tracking-[0.3em] text-pink-300/80 mb-3 font-medium">Trân trọng kính mời</p>
+        <h1 class="text-3xl sm:text-4xl font-serif-custom font-bold text-white mb-2">Đức Huy & Minh Quân</h1>
+        <p class="text-xs text-slate-300 italic mb-6">"Ngày vui của chúng mình sẽ trọn vẹn hơn khi có sự hiện diện của bạn"</p>
+
+        <!-- Khung ảnh cưới -->
+        <div class="relative w-32 h-32 mx-auto mb-6 rounded-full p-1 bg-gradient-to-tr from-pink-500 to-indigo-500 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&q=80&w=400" alt="Wedding" class="w-full h-full object-cover rounded-full border-2 border-slate-900">
+        </div>
+
+        <!-- ================= PHẦN ĐẾM NGƯỢC THỜI GIAN ================= -->
+        <div class="mb-6">
+            <p class="text-xs text-slate-300 mb-3 font-medium flex items-center justify-center gap-1.5">
+                <i class="fa-solid fa-hourglass-half text-pink-400"></i> Cùng đếm ngược đến ngày chung đôi
+            </p>
+            <div class="grid grid-cols-4 gap-2 text-center">
+                <div class="liquid-glass p-2.5 rounded-2xl">
+                    <span id="days" class="text-xl sm:text-2xl font-bold text-pink-400 block">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider">Ngày</span>
+                </div>
+                <div class="liquid-glass p-2.5 rounded-2xl">
+                    <span id="hours" class="text-xl sm:text-2xl font-bold text-pink-400 block">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider">Giờ</span>
+                </div>
+                <div class="liquid-glass p-2.5 rounded-2xl">
+                    <span id="minutes" class="text-xl sm:text-2xl font-bold text-pink-400 block">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider">Phút</span>
+                </div>
+                <div class="liquid-glass p-2.5 rounded-2xl">
+                    <span id="seconds" class="text-xl sm:text-2xl font-bold text-pink-400 block">00</span>
+                    <span class="text-[10px] text-slate-400 uppercase tracking-wider">Giây</span>
+                </div>
+            </div>
+        </div>
+        <!-- ============================================================ -->
+
+        <!-- Thông tin thời gian & địa điểm -->
+        <div class="space-y-3 mb-8 text-left">
+            <div class="liquid-glass p-4 rounded-2xl flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-xl bg-pink-500/20 border border-pink-500/30 flex items-center justify-center text-pink-300 shrink-0">
+                    <i class="fa-solid fa-calendar-days"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">Thời gian</p>
+                    <p class="text-sm font-semibold text-white">18:00 Thứ Ba, Ngày 20/10/2099</p>
+                </div>
+            </div>
+
+            <div class="liquid-glass p-4 rounded-2xl flex items-center space-x-4">
+                <div class="w-10 h-10 rounded-xl bg-indigo-500/20 border border-indigo-500/30 flex items-center justify-center text-indigo-300 shrink-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                    <p class="text-xs text-slate-400">Địa điểm tổ chức</p>
+                    <p class="text-sm font-semibold text-white">Trung tâm Tiệc cưới Sapphire, Nghệ An</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Nút Hành động -->
+        <div class="space-y-3">
+            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" 
+               class="liquid-glass liquid-glass-hover w-full py-3.5 px-4 rounded-2xl flex items-center justify-center space-x-2 text-white font-medium transition-all duration-300">
+                <i class="fa-solid fa-map-location-dot text-pink-400"></i>
+                <span>Xem bản đồ đường đi</span>
+            </a>
+
+            <button onclick="alert('Cảm ơn bạn đã xác nhận tham dự cùng chúng mình!')" 
+                    class="w-full py-3.5 px-4 rounded-2xl bg-gradient-to-r from-pink-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-semibold shadow-lg shadow-pink-500/20 transition-all duration-300 transform hover:-translate-y-0.5">
+                <i class="fa-solid fa-heart mr-2"></i> Xác Nhận Tham Dự (RSVP)
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <p class="text-[11px] text-slate-500 mt-8">Sự hiện diện của bạn là niềm vinh hạnh cho gia đình chúng tôi.</p>
+    </div>
+
+    <!-- Script tính toán đếm ngược đến 20/10/2099 -->
+    <script>
+        // Thiết lập ngày cưới: 18:00:00 ngày 20/10/2099
+        const targetDate = new Date("October 20, 2099 18:00:00").getTime();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetDate - now;
+
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                document.getElementById("days").innerText = days < 10 ? '0' + days : days;
+                document.getElementById("hours").innerText = hours < 10 ? '0' + hours : hours;
+                document.getElementById("minutes").innerText = minutes < 10 ? '0' + minutes : minutes;
+                document.getElementById("seconds").innerText = seconds < 10 ? '0' + seconds : seconds;
+            } else {
+                document.getElementById("days").innerText = "00";
+                document.getElementById("hours").innerText = "00";
+                document.getElementById("minutes").innerText = "00";
+                document.getElementById("seconds").innerText = "00";
+            }
+        }
+
+        // Cập nhật mỗi giây
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
