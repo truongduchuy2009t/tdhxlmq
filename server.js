@@ -12,7 +12,12 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Route dự phòng (Fallback) cho các đường dẫn khác nếu có cấu hình SPA router sau này
+// Route riêng cho trang Wedding (trỏ tới file wedding.html trong thư mục public)
+app.get('/wedding', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'wedding.html'));
+});
+
+// Route dự phòng (Fallback) cho các đường dẫn khác
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
