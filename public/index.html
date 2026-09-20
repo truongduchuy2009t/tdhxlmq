@@ -8,7 +8,7 @@
     <title>TDHxLMQ</title>
     <meta name="title" content="TDHxLMQ">
     <meta name="description" content="Trang bio chính thức của tdhxlmq (Trương Đức Huy & Lê Minh Quân). ">
-    <meta name="keywords" content="tdhxlmq, tdh x lmq, trương đức huy, lê minh quân, bio cặp đôi, tdhxlmq, liquid glass ui, trang cá nhân tdhxlmq">
+    <meta name="keywords" content="tdhxlmq, tdh x lmq, trương đức huy, lê minh quân">
     <meta name="author" content="TDHxLMQ">
     <meta name="robots" content="index, follow">
     <link rel="icon" type="image/png" href="https://scontent.fvii2-1.fna.fbcdn.net/v/t39.30808-6/483067792_612873464922746_4741570201831170335_n.jpg?stp=dst-jpg_tt6&cstp=mx336x336&ctp=s336x336&_nc_cat=105&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeHD5W5YraGJnGgVx7hxukiztCUeg53hMUG0JR6DneExQSmonBfulYbiWxklX6xgytEbFn--cQwmd_YTRxY7fpHX&_nc_ohc=OMrKIYe5ciEQ7kNvwHVl83o&_nc_oc=AdrgrkjWy6hKrRVcEFvqT3eVKOD4p-74sj6STD2RIyWSqZBqgeB3HflaqP4kckZjLXLAo13SyuXcT7TSFwXjg0LE&_nc_zt=23&_nc_ht=scontent.fvii2-1.fna&_nc_gid=7lKoI287uy2b8lYGcq4cTw&_nc_ss=7b2a8&oh=00_AQLMYJDh3W6j8mK9A4ehHfepjpqWkZYyGjse6JekkdOm9g&oe=6AB08509">
@@ -163,6 +163,18 @@
             </div>
         </div>
     </header>
+
+    <!-- ==================== STREAK BADGE GẮN Ở ĐẦU TRANG ==================== -->
+    <div class="relative z-10 w-full max-w-md mx-auto px-4 pt-2 pb-1 text-center">
+        <div class="liquid-glass px-5 py-2.5 rounded-full inline-flex items-center justify-center space-x-2.5 border border-amber-500/30 shadow-lg bg-gradient-to-r from-amber-500/10 via-orange-500/10 to-pink-500/10 animate-pulse">
+            <span class="text-base">🔥</span>
+            <span class="text-xs sm:text-sm font-bold tracking-wide text-white">
+                Love Streak: <span id="streakDays" class="text-amber-400 font-extrabold">0</span> Ngày Bên Nhau
+            </span>
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-ping"></span>
+        </div>
+    </div>
+    <!-- ===================================================================== -->
 
     <!-- Main Content Area: Responsive Split Screen -->
     <main class="relative z-10 flex-grow max-w-7xl w-full mx-auto px-4 py-4 grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -367,14 +379,14 @@
                         <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400 group-hover/btn:text-white transition-colors"></i>
                     </a>
 
-                    <a href="" target="_blank" rel="noopener noreferrer" 
+                    <a href="#" target="_blank" rel="noopener noreferrer" 
                        class="liquid-glass liquid-glass-hover w-full py-3.5 px-4 rounded-2xl flex items-center justify-between transition-all duration-300 group/btn">
                         <div class="flex items-center space-x-3">
                             <div class="w-9 h-9 rounded-xl bg-orange-600/20 border border-orange-500/30 flex items-center justify-center text-orange-400 group-hover/btn:scale-110 transition-transform">
                                 <i class="fa-solid fa-bag-shopping"></i>
                             </div>
                             <div class="text-left">
-                                <p class="text-sm font-semibold text-white">LeMinhQuan's Shop</p>
+                                <p class="text-sm font-semibold text-white">My Shop</p>
                                 <p class="text-[11px] text-slate-400">Shop y gi bi teo</p>
                             </div>
                         </div>
@@ -390,7 +402,7 @@
 
     </main>
 
-    <!-- Nút Wedding chuyển hướng sang trang mới -->
+    <!-- Nút Wedding chuyển hướng sang trang wedding -->
     <div class="relative z-10 w-full max-w-md mx-auto px-4 mb-6 text-center">
         <a href="/wedding" target="_blank" rel="noopener noreferrer" 
            class="liquid-glass liquid-glass-hover py-3.5 px-6 rounded-2xl inline-flex items-center justify-center space-x-3 transition-all duration-300 group shadow-xl w-full border border-pink-500/30 bg-gradient-to-r from-indigo-500/10 via-pink-500/10 to-purple-500/10">
@@ -491,7 +503,7 @@
             }
         }
 
-        // Relationship Counter Timer (Đổi ngày kỷ niệm tại đây: YYYY-MM-DD)
+        // Relationship Counter Timer & Streak (Đổi ngày kỷ niệm tại đây: YYYY-MM-DD)
         const startDate = new Date('2024-01-01T00:00:00');
 
         function updateTimer() {
@@ -504,10 +516,15 @@
                 const mins = Math.floor((diff / 1000 / 60) % 60);
                 const secs = Math.floor((diff / 1000) % 60);
 
+                // Cập nhật bộ đếm chi tiết ở footer
                 document.getElementById('daysCount').innerText = days.toLocaleString();
                 document.getElementById('hoursCount').innerText = hours;
                 document.getElementById('minsCount').innerText = mins;
                 document.getElementById('secsCount').innerText = secs;
+
+                // Cập nhật số ngày Streak lên đầu trang
+                const streakEl = document.getElementById('streakDays');
+                if (streakEl) streakEl.innerText = days.toLocaleString();
             }
         }
 
@@ -519,9 +536,10 @@
         setInterval(() => {
             if (Math.random() > 0.6) {
                 views++;
-                document.getElementById('viewCount').innerText = views.toLocaleString();
+                const viewEl = document.getElementById('viewCount');
+                if (viewEl) viewEl.innerText = views.toLocaleString();
             }
-        }, 3500);
+        }, 5000);
     </script>
 </body>
 </html>
